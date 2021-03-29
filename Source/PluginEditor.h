@@ -58,6 +58,8 @@ private:
                 highCutSlopeSliderAttachment;
     
     std::vector<juce::Component*> getComps();
+    
+    MonoChain monoChain;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (SimpleEQAudioProcessorEditor)
 };
