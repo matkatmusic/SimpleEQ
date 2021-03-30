@@ -116,8 +116,10 @@ struct AnalyzerPathGenerator
 
         auto y = map(renderData[0]);
 
-        jassert( !std::isnan(y) && !std::isinf(y) );
-
+//        jassert( !std::isnan(y) && !std::isinf(y) );
+        if( std::isnan(y) || std::isinf(y) )
+            y = bottom;
+        
         p.startNewSubPath(0, y);
 
         const int pathResolution = 2; //you can draw line-to's every 'pathResolution' pixels.
@@ -126,7 +128,7 @@ struct AnalyzerPathGenerator
         {
             y = map(renderData[binNum]);
 
-            jassert( !std::isnan(y) && !std::isinf(y) );
+//            jassert( !std::isnan(y) && !std::isinf(y) );
 
             if( !std::isnan(y) && !std::isinf(y) )
             {
